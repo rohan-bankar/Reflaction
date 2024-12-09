@@ -7,7 +7,7 @@ import { Route, createBrowserRouter, createRoutesFromElements,RouterProvider } f
 import SignUp from './components/SignUp/SignUp.jsx'
 import Login from './components/Login/Login.jsx'
 import Home from './components/Home/Home.jsx'
-import ResponseForm from './components/ResponseForm/ResponseForm.jsx';
+import ResponseForm from './components/ResponseForm/ResponseForm.jsx'
 import UserFeedback from './components/UserFeedback/UserFeedback.jsx'
 const router = createBrowserRouter(createRoutesFromElements(
   <Route path='/' element={<Layout/>}>

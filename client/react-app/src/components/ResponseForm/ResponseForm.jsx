@@ -68,7 +68,7 @@ const ResponseForm = () => {
   };
 
   return (
-    <div className="max-w-4xl mx-auto p-6 bg-white rounded-lg shadow-lg">
+    <div className="max-w-4xl mx-auto p-6 bg-white rounded-lg shadow-lg"style={{height:'85vh'}}>
     <h2 className="text-2xl font-semibold text-gray-700 mb-4">Submit Your Feedback</h2>
 
     {error && <p className="text-red-500 text-sm mb-4">{error}</p>}

@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 
 const UserFeedback = () => {
@@ -18,10 +18,12 @@ const UserFeedback = () => {
         const decodedToken = JSON.parse(window.atob(base64));
         return decodedToken._id;  // Assuming _id stores the userId
     };
-
+    console.log("decodetoken",decodeToken);
     // Get the userId from the decoded token
     const userId = getAccessToken() ? decodeToken(getAccessToken()) : null;
-    console.log("respons",userId);
+
+    console.log("respons after decode", userId);
+
     useEffect(() => {
         if (userId) {
             fetchUserFeedback(userId);
@@ -34,12 +36,12 @@ const UserFeedback = () => {
     const fetchUserFeedback = async (userId) => {
         try {
             const token = getAccessToken();
-            const response = await axios.get(`/api/v1/view-feedback-response/${userId}`, {
+            const response = await axios.get(`/api/v1/form/view-feedback-response/${userId}`, {
                 headers: {
                     Authorization: `Bearer ${token}`,
                 },
             });
-            console.log(response.data);
+            console.log("fetchdata",response.data.data);
             setUserFeedback(response.data.data); // Set the feedback data
         } catch (err) {
             console.error(err);

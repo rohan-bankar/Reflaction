@@ -32,8 +32,8 @@ const Login = () => {
   // const backgroundImage = 'url("/bg-2.jpg")'
 
   return (
-    <div>
-        <div className='mx-auto shadow-lg rounded-3xl overflow-hidden relative top-24 p-4 bg-yellow-100 bg-opacity-30' style={{width:'32%'}}>
+    <div style={{height:'85vh'}}>
+        <div className='mx-auto shadow-lg rounded-3xl overflow-hidden relative top-32 p-4 bg-yellow-400 bg-opacity-30' style={{width:'32%'}}>
           <form onSubmit={handleSubmit}>
             <h1 className='text-center font-bold text-xl text-white'>Login</h1>
             <div>
