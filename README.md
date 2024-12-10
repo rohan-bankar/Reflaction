@@ -64,5 +64,15 @@ This project ensures a seamless feedback collection process while prioritizing u
 - Navigate to the frontend directory (if separate) and start the Vite server:
 - npm run dev
 
-
+### Screenshots
+# Register
+![Screenshot 2024-12-10 at 2 10 28 PM](https://github.com/user-attachments/assets/ff551b30-9691-4fea-b2fc-443c7b6dcc32)
+# Login
+![Screenshot 2024-12-10 at 2 10 48 PM](https://github.com/user-attachments/assets/a37ebdba-8706-4b16-bf3f-15be6630cd8c)
+# Home
+![Screenshot 2024-12-10 at 2 16 48 PM](https://github.com/user-attachments/assets/64603891-f3f5-4427-920b-012a0e716c0b)
+# Form
+![Screenshot 2024-12-10 at 2 17 40 PM](https://github.com/user-attachments/assets/332967a8-f194-407b-9932-367836c3d0c0)
+# Response Dashboard
+![Screenshot 2024-12-10 at 2 18 04 PM](https://github.com/user-attachments/assets/640765c7-a7af-423a-8471-0bf938ba409c)
 
