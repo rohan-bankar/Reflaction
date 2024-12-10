@@ -3,7 +3,7 @@ import axios from 'axios';
 import { useParams } from 'react-router-dom';
 
 const ResponseForm = () => {
-  const { linkId } = useParams(); // Get linkId from the URL
+  const { linkId } = useParams(); 
   const [positiveResponses, setPositiveResponses] = useState([]);
   const [improvementResponses, setImprovementResponses] = useState([]);
   const [positiveFeedback, setPositiveFeedback] = useState('');
@@ -15,7 +15,7 @@ const ResponseForm = () => {
     console.log("Received linkId:", linkId);
   }, [linkId]);
 
-  // Handle positive response selection
+  
   const handlePositiveResponseChange = (e) => {
     const value = e.target.value;
     setPositiveResponses(prevState =>
@@ -25,7 +25,7 @@ const ResponseForm = () => {
     );
   };
 
-  // Handle improvement response selection
+  
   const handleImprovementResponseChange = (e) => {
     const value = e.target.value;
     setImprovementResponses(prevState =>
@@ -40,7 +40,7 @@ const ResponseForm = () => {
     setError('');
     setSuccessMessage('');
 
-    // Validate if at least one response is selected
+    
     if ((!positiveResponses.length && !improvementResponses.length) ||
       (!positiveFeedback && !improvementFeedback)) {
       setError('At least one response (positive or improvement) is required.');

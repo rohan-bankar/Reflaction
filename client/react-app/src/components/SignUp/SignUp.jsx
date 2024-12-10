@@ -26,7 +26,7 @@ const SignUp = () => {
       setError("");
       setSuccessMessage("");
   
-      // Basic validation for empty fields
+      
       const { firstName, lastName, email, password } = formData;
       if (!firstName || !lastName || !email || !password) {
         setError("All fields are required.");
@@ -34,9 +34,9 @@ const SignUp = () => {
       }
   
       try {
-        // Send POST request to the backend
+        
         const response = await axios.post("/api/v1/users/register", formData);
-        setSuccessMessage(response.data.message);  // Assuming message is sent in the response
+        setSuccessMessage(response.data.message);  
         setFormData({
           firstName: "",
           lastName: "",
@@ -53,12 +53,12 @@ const SignUp = () => {
     };
   
     return (
-      <div className="signup-container max-w-md mx-auto p-6 bg-white shadow-lg rounded-lg mt-10" style={{height:'80vh'}}>
+      <div className="signup-container max-w-md mx-auto p-6 bg-white shadow-lg rounded-lg mt-10 border" style={{height:'80vh'}}>
   <h2 className="text-2xl font-bold text-center text-gray-700 mb-6">Sign Up</h2>
   
   <form onSubmit={handleSubmit} className="space-y-4">
-    {error && <div className="text-red-500 text-sm mb-4">{error}</div>}
-    {successMessage && <div className="text-green-500 text-sm mb-4">{successMessage}</div>}
+    {error && <div className="text-red-500 text-sm mb-4 font-bold">{error}</div>}
+    {successMessage && <div className="text-green-500 text-sm mb-4 font-bold">{successMessage}</div>}
     
     <div>
       <label htmlFor="firstName" className="block text-sm font-medium text-gray-600 mb-2">First Name</label>

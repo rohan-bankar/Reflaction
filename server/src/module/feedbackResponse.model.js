@@ -21,11 +21,11 @@ const feedbackResponseSchema = new Schema(
         ],
         positiveFeedback: {
             type: String,
-            trim: true, // Positive free-text feedback
+            trim: true, 
         },
         improvementFeedback: {
             type: String,
-            trim: true, // Improvement free-text feedback
+            trim: true,
         },
         submittedAt: {
             type: Date,

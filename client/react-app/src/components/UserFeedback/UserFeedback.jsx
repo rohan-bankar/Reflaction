@@ -6,20 +6,20 @@ const UserFeedback = () => {
     const [error, setError] = useState("");
     const [loading, setLoading] = useState(true);
 
-    // Get the access token from localStorage
+    
     const getAccessToken = () => {
         return localStorage.getItem('accessToken');
     };
 
-    // Decode the JWT token to extract the userId
+    
     const decodeToken = (token) => {
         const base64Url = token.split('.')[1];
         const base64 = base64Url.replace(/-/g, '+').replace(/_/g, '/');
         const decodedToken = JSON.parse(window.atob(base64));
-        return decodedToken._id;  // Assuming _id stores the userId
+        return decodedToken._id;  
     };
     console.log("decodetoken",decodeToken);
-    // Get the userId from the decoded token
+    
     const userId = getAccessToken() ? decodeToken(getAccessToken()) : null;
 
     console.log("respons after decode", userId);
@@ -42,7 +42,7 @@ const UserFeedback = () => {
                 },
             });
             console.log("fetchdata",response.data.data);
-            setUserFeedback(response.data.data); // Set the feedback data
+            setUserFeedback(response.data.data); 
         } catch (err) {
             console.error(err);
             setError("Failed to load user feedback.");

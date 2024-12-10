@@ -73,7 +73,7 @@ const Home = () => {
             const { feedbackUrl } = response.data.data;
             setSuccessMessage(`Feedback link created successfully. Use this URL: ${feedbackUrl}`);
             setDescription("");
-            fetchFeedbackLinks(); // Reload feedback links
+            fetchFeedbackLinks(); 
         } catch (err) {
             console.error(err);
             setError("Failed to create feedback link.");
@@ -95,7 +95,7 @@ const Home = () => {
             });
             console.log(response);
             setSuccessMessage("Feedback link deleted successfully.");
-            fetchFeedbackLinks(); // Reload feedback links after deletion
+            fetchFeedbackLinks(); 
         } catch (err) {
             console.error(err);
             setError("Failed to delete feedback link.");
@@ -117,7 +117,7 @@ const Home = () => {
             );
             Cookies.remove("accessToken");
             Cookies.remove("refreshToken");
-            window.location.href = "/login"; // Redirect to login after logging out
+            window.location.href = "/login"; 
         } catch (err) {
             console.error(err);
             setError("Failed to log out.");

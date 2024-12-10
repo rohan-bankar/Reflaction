@@ -4,24 +4,7 @@ import { ApiResponse } from "../utils/ApiResponse.js";
 import { asyncHandler } from "../utils/asyncHandler.js";
 import { v4 as uuidv4} from "uuid";
 import { FeedbackResponse } from "../module/feedbackResponse.model.js";
-// const createFeebbackLink = asyncHandler(async(req,res)=>{
-//     const userId = req.user._id;
-//     const { description } = req.body;
 
-//   const newFeedbackLink = new FeedbackLink({
-//     linkId: uuidv4(), 
-//     createdBy: userId,
-//     description,
-//   });
-
-//   await newFeedbackLink.save();
-//   console.log(newFeedbackLink);
-//   return res
-//   .status(201)
-//   .json(
-//     new ApiResponse(200,newFeedbackLink,"Feedback link created successfully")
-//   );
-// });
 const createFeebbackLink = asyncHandler(async (req, res) => {
   const { userId, description } = req.body;
 
@@ -29,7 +12,7 @@ const createFeebbackLink = asyncHandler(async (req, res) => {
       throw new ApiError(400, "User ID and description are required.");
   }
 
-  // Generate the feedback link ID
+  
   const linkId = uuidv4();
   
   const newFeedbackLink = new FeedbackLink({
@@ -41,7 +24,7 @@ const createFeebbackLink = asyncHandler(async (req, res) => {
   await newFeedbackLink.save();
   console.log("New Feedback Link:", newFeedbackLink);
 
-  // Use the predefined common URL part
+  
   const commonUrlPart = "http://localhost:5173/submit-feedback";
   const feedbackUrl = `${commonUrlPart}/${linkId}`;
 
@@ -92,16 +75,16 @@ const getUserFeedbackLinks = asyncHandler(async (req, res) => {
 
 
 const viewFeedbackResponse = asyncHandler(async (req, res) => {
-  const userId  = req.params.userId;  // Get userId from the request params
+  const userId  = req.params.userId;  
   console.log(userId);
-  // Find feedback links created by the user
+ 
   const feedbackLinks = await FeedbackLink.find({ createdBy: userId });
   console.log(feedbackLinks);
   if (feedbackLinks.length === 0) {
       throw new ApiError(404, "No feedback links found for this user");
   }
 
-  // Fetch feedback responses for all the links created by the user
+  
   const feedbackResponses = await FeedbackResponse.find({
       linkId: { $in: feedbackLinks.map(link => link._id) }
   });

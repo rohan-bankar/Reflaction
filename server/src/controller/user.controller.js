@@ -21,7 +21,7 @@ const generateAccessAndRefreshToken = async(userId)=>{
 
 const registerUser = asyncHandler(async(req,res)=>{
     const{firstName,lastName,email,password} = req.body;
-    // console.log(req.body);
+    
     if(
         [firstName,lastName,email,password].some((field)=>field?.trim() === "")
     ){
@@ -47,7 +47,7 @@ const registerUser = asyncHandler(async(req,res)=>{
     const createdUser = await User.findById(user._id).select(
         "-password -refreshToken"
     )
-    // console.log(createdUser);
+   
 
     if(!createdUser){
         throw new ApiError(500,"Something went wrong while registering the user")
